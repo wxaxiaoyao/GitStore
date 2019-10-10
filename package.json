@@ -1,7 +1,7 @@
 {
-  "name": "git-store",
+  "name": "git-history-store",
   "version": "1.0.0",
-  "description": "git store",
+  "description": "Git-based object storage service",
   "main": "index.js",
   "scripts": {
     "test": "mocha --no-timeout"

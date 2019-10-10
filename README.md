@@ -13,7 +13,7 @@ GitStore 是基于 Git 实现的一种带有历史版本的文件存储服务, �
 
 ### 安装
 ```
-npm install git-store --save
+npm install git-history-store --save
 ```
 
 ### 示例
