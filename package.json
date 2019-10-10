@@ -1,0 +1,29 @@
+{
+  "name": "git-store",
+  "version": "1.0.0",
+  "description": "git store",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "test"
+  },
+  "keywords": [
+    "git",
+    "store",
+    "history"
+  ],
+  "author": "wxaxiaoyao",
+  "license": "ISC",
+  "dependencies": {
+    "@wxaxiaoyao/async-queue": "^1.0.2",
+    "js-base64": "^2.5.1",
+    "lodash": "^4.17.15",
+    "nodegit": "^0.26.2"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.1"
+  }
+}
