@@ -4,11 +4,11 @@
   "description": "git store",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "mocha --no-timeout"
   },
   "repository": {
     "type": "git",
-    "url": "test"
+    "url": "https://github.com/wxaxiaoyao/GitStore"
   },
   "keywords": [
     "git",
@@ -18,7 +18,7 @@
   "author": "wxaxiaoyao",
   "license": "ISC",
   "dependencies": {
-    "@wxaxiaoyao/async-queue": "^1.0.2",
+    "@wxaxiaoyao/async-queue": "^1.0.4",
     "js-base64": "^2.5.1",
     "lodash": "^4.17.15",
     "nodegit": "^0.26.2"
