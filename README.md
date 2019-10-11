@@ -18,11 +18,12 @@ npm install git-history-store --save
 
 ### 示例
 ```
-const GitStore = require("git-store");
+const GitStore = require("git-history-store");
 
 // 增改文件
 const id = await GitStore.saveFile({
-	path: "test/file",
+	repopath: "test",
+	filepath: "test/file",
 	content: "object content",
 });
 
@@ -54,7 +55,8 @@ const commits = await GitStore.history({path: "test/file"});
 > 保存文件, 不存在创建, 存在覆盖.
 
 **参数**
-- args.path 文件路径
+- args.repopath 仓库路径
+- args.filepath 文件路径
 - args.content 文件内容
 - args.message 提交备注
 - args.ref 提交分支 默认为路径path对应的分支
@@ -68,7 +70,8 @@ const commits = await GitStore.history({path: "test/file"});
 > 删除文件
 
 **参数**
-- args.path 文件路径
+- args.repopath 仓库路径
+- args.filepath 文件路径
 - args.message 提交备注
 - args.ref 提交分支 默认为路径path对应的分支
 - args.committer.name 提交者用户名
@@ -81,7 +84,8 @@ const commits = await GitStore.history({path: "test/file"});
 > 获取文件
 
 **参数**
-- args.path 文件路径
+- args.repopath 仓库路径
+- args.filepath 文件路径
 - args.ref 提交分支 默认为路径path对应的分支
 - args.commitId 提交id, 可选. 用于获取指定版本的文件, 为空则为最新版本
 
@@ -96,7 +100,8 @@ const commits = await GitStore.history({path: "test/file"});
 > 获取文件提交历史
 
 **参数**
-- args.path 文件路径
+- args.repopath 仓库路径
+- args.filepath 文件路径
 - args.ref 提交分支 默认为路径path对应的分支
 - args.commitId 提交id, 可选. 用于获取指定版本的文件, 为空则为最新版本
 - args.maxCount 获取历史数量

@@ -1,11 +1,11 @@
 
-const GitStore = require("./lib/index.js");
+const Store = require("./lib/store.js");
 
-const GIT_STORE = Symbol("GIT_STORE");
+const STORE = Symbol("STORE");
 
 class GitStoreInterface {
 	constructor(opts) {
-		this[GIT_STORE] = new GitStore(opts);
+		this[STORE] = new GitStore(opts);
 	}
 
 	create(opt) {
@@ -13,27 +13,27 @@ class GitStoreInterface {
 	}
 
 	setOptions(args) {
-		return this[GIT_STORE].setOptions(args);
+		return this[STORE].setOptions(args);
 	}
 
 	async saveFile(args) {
-		return await this[GIT_STORE].saveFile(args);
+		return await this[STORE].saveFile(args);
 	}
 
 	async deleteFile(args) {
-		return await this[GIT_STORE].deleteFile(args);
+		return await this[STORE].deleteFile(args);
 	}
 
 	async getFile(args) {
-		return await this[GIT_STORE].getFile(args);
+		return await this[STORE].getFile(args);
 	}
 
 	async getFileContent(args) {
-		return await this[GIT_STORE].getFileContent(args);
+		return await this[STORE].getFileContent(args);
 	}
 
 	async history(args) {
-		return await this[GIT_STORE].history(args);
+		return await this[STORE].history(args);
 	}
 }
 
