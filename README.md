@@ -1,13 +1,9 @@
 ## GitStore
 
-GitStore 是基于 Git 实现的一种带有历史版本的文件存储服务, 更为准确的说是对象存储系统.  因为本服务对文件的层级维护没有太多优化, 完全是基于系统的文件系统存储. 因此更像对象存储服务, 对象即文件.  主要提供了文件的文件增, 删, 查, 改和历史提交的获取.  
-
-### 实现原理
-
-由于 Git 本身就是内容寻址文件系统, 是具备做为对象存储系统的优良条件. Git 的实现思路为 commit -> tree -> blob;
+GitStore 是基于 Git 实现的一种带有历史版本的文件存储服务.
 
 ### 特性
-- 支持文件基本的增,删,查,改
+- 支持文件基本的增,删,查,改. 仓库自动创建.
 - 支持文件历史版本获取
 - 支持水平扩展, 多进程
 
@@ -38,7 +34,7 @@ const commits = await GitStore.history({path: "test/file"});
 
 ### 接口
 #### GitStore.create(opts)
-> 创建存储实例, GitStore 本身也是实例.
+创建存储实例, GitStore 本身也是实例.
 
 - opt.storePath 存储路径
 - opt.timeout 超时时间 默认 10000 ms
@@ -49,10 +45,10 @@ const commits = await GitStore.history({path: "test/file"});
 - GitStore 示例
 
 #### GitStore.setOptions(opts) 
-> 设置存储示例配置项, 同创建 opts, 无返回
+设置存储示例配置项, 同创建 opts, 无返回
 
 #### GitStore.saveFile(args)
-> 保存文件, 不存在创建, 存在覆盖.
+保存文件, 不存在创建, 存在覆盖.
 
 **参数**
 - args.repopath 仓库路径
@@ -67,7 +63,7 @@ const commits = await GitStore.history({path: "test/file"});
 - string commitId 提交Id
 
 #### GitStore.deleteFile(args) 
-> 删除文件
+删除文件
 
 **参数**
 - args.repopath 仓库路径
@@ -81,7 +77,7 @@ const commits = await GitStore.history({path: "test/file"});
 - boolean true 删除成功  false 删除失败
 
 #### GitStore.getFile(args) 
-> 获取文件
+获取文件
 
 **参数**
 - args.repopath 仓库路径
@@ -97,7 +93,7 @@ const commits = await GitStore.history({path: "test/file"});
 - committer 提交者信息
 
 #### GitStore.history(args) 
-> 获取文件提交历史
+获取文件提交历史
 
 **参数**
 - args.repopath 仓库路径
@@ -111,6 +107,38 @@ const commits = await GitStore.history({path: "test/file"});
 - message 提交信息
 - date 提交日期
 - committer 提交者信息
+
+#### GitStore.getTree(args) 
+通过获取文件树
+
+**参数**
+- args.repopath 仓库路径
+- args.filepath 文件路径
+- args.recursive 是否递归
+- args.ref 提交分支 默认为路径path对应的分支
+
+**返回**
+- id 标识ID
+- name 文件名
+- path 文件路径
+- isTree 是否Tree
+- children 当为Tree时, 此字段返回Tree的条目  recursive = true 时生效
+
+#### GitStore.getTree(args) 
+通过ID获取文件树
+
+**参数**
+- args.repopath 仓库路径
+- args.id Tree ID
+- args.recursive 是否递归
+
+**返回**
+- id 标识ID
+- name 文件名
+- path 文件路径
+- isTree 是否Tree
+- children 当为Tree时, 此字段返回Tree的条目  recursive = true 时生效
+
 
 
 

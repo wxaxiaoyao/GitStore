@@ -5,7 +5,7 @@ const STORE = Symbol("STORE");
 
 class GitStoreInterface {
 	constructor(opts) {
-		this[STORE] = new GitStore(opts);
+		this[STORE] = new Store(opts);
 	}
 
 	create(opt) {
@@ -34,6 +34,14 @@ class GitStoreInterface {
 
 	async history(args) {
 		return await this[STORE].history(args);
+	}
+
+	async getTree(args) {
+		return await this[STORE].getTree(args);
+	}
+
+	async getTreeById(args) {
+		return await this[STORE].getTreeById(args);
 	}
 }
 
