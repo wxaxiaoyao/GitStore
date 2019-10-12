@@ -1,6 +1,6 @@
 ## GitStore
 
-GitStore 是基于 Git 实现的一种带有历史版本的文件存储服务.
+GitStore 是基于 Git 实现的一种带有历史版本的文件存储服务. 技术交流群(733135641)
 
 ### 特性
 - 支持文件基本的增,删,查,改. 仓库自动创建.
@@ -124,7 +124,7 @@ const commits = await GitStore.history({path: "test/file"});
 - isTree 是否Tree
 - children 当为Tree时, 此字段返回Tree的条目  recursive = true 时生效
 
-#### GitStore.getTree(args) 
+#### GitStore.getTreeById(args) 
 通过ID获取文件树
 
 **参数**

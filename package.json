@@ -1,6 +1,6 @@
 {
   "name": "git-history-store",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Git-based object storage service",
   "main": "index.js",
   "scripts": {
