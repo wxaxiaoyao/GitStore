@@ -54,6 +54,7 @@ const commits = await GitStore.history({path: "test/file"});
 - args.repopath 仓库路径
 - args.filepath 文件路径
 - args.content 文件内容
+- args.encoding 文件内容编码方式 默认 hex
 - args.message 提交备注
 - args.ref 提交分支 默认为路径path对应的分支
 - args.committer.name 提交者用户名

@@ -33,7 +33,7 @@ describe("git", async () => {
 
 		id = await git.saveFile({
 			repopath,
-			filepath: "file2.txt",
+			filepath: "中文.txt",
 			content: "file2.txt content",
 			ref,
 		});
@@ -61,5 +61,8 @@ describe("git", async () => {
 			recursive: true,
 		});
 		assert(trees.length == 3);
+
+		// 创建归档文件
+		await git.createArchive({repopath, ref});
 	});
 });

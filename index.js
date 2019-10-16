@@ -43,6 +43,14 @@ class GitStoreInterface {
 	async getTreeById(args) {
 		return await this[STORE].getTreeById(args);
 	}
+
+	async createArchive(args) {
+		return await this[STORE].createArchive(args);
+	}
+
+	getRepoFullPath(args) {
+		return this[STORE].getRepoFullPath(args);
+	}
 }
 
 module.exports = new GitStoreInterface();
