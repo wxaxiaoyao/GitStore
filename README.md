@@ -87,7 +87,7 @@ const commits = await GitStore.history({path: "test/file"});
 - args.commitId 提交id, 可选. 用于获取指定版本的文件, 为空则为最新版本
 
 **返回**
-- content 文件内容
+- content 文件内容缓冲区 Buffer   转字符串 content.toString();
 - commitId 提交Id
 - message 提交信息
 - date 提交日期
