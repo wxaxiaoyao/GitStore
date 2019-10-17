@@ -65,4 +65,31 @@ describe("git", async () => {
 		// 创建归档文件
 		await git.createArchive({repopath, ref});
 	});
+	
+	it("002 push", async () => {
+		util.rmdir("data/git");
+		let id = await git.saveFile({
+			repopath:"repo1",
+			filepath: "file1",
+			content: "file1 content",
+		});
+		console.log(id);
+		assert(id);
+
+		id = await git.saveFile({
+			repopath: "repo1",
+			filepath: "file2",
+			content: "repo1 file2 content",
+		});
+		console.log(id);
+		assert(id);
+		
+		id = await git.saveFile({
+			repopath: "repo2",
+			filepath: "file2",
+			content: "file2 content",
+		});
+		console.log(id);
+		assert(id);
+	});
 });
