@@ -13,7 +13,7 @@ const ref = "master";
 describe("git", async () => {
 
 	it ("001 tree", async () => {
-		util.rmdir("data/git/" + base64.encode(repopath));
+		util.rmdir("data");
 
 		let id = await git.saveFile({
 			repopath,
@@ -91,5 +91,19 @@ describe("git", async () => {
 		});
 		console.log(id);
 		assert(id);
+	});
+
+	it("003 upload", async () => {
+		util.rmdir("data");
+		let id = await git.upload({
+			repopath,
+			filepath: "file1",
+			content: "file1 content",
+			base64: null,
+		});
+		console.log(id);
+
+		id = await git.commit({files:[{action:"upsert", filename:"file1", id}], repopath});
+		console.log(id);
 	});
 });

@@ -3,7 +3,8 @@
 GitStore 是基于 Git 实现的一种带有历史版本的文件存储服务. 技术交流群(733135641)
 
 ### 特性
-- 支持文件基本的增,删,查,改. 仓库自动创建.
+- 支持文件基本的增,删,查,改的原子提交. 仓库自动创建.
+- 支持文件先上传, 后整体提交. 适用批量提交
 - 支持文件历史版本获取
 - 支持水平扩展, 多进程
 
@@ -47,6 +48,34 @@ const commits = await GitStore.history({path: "test/file"});
 #### GitStore.setOptions(opts) 
 设置存储示例配置项, 同创建 opts, 无返回
 
+#### GitStore.upload(args) 
+上传文件, 但不提交
+
+**参数**
+- args.repopath 仓库路径
+- args.content 文件内容
+- args.encoding 文件编码方式
+
+**返回**
+- id 文件Id
+
+#### GitStore.commit(args) 
+提交已上传的文件
+
+**参数**
+- args.repopath 仓库路径
+- args.message 提交信息
+- args.ref 提交引用
+- args.committer.name 提交者用户名
+- args.committer.email 提交者邮箱
+- args.files 文件列表
+- args.files.action 保存或删除  取值 upsert, remove
+- args.files.path 文件路径
+- args.files.id 文件Id
+
+**返回**
+- string commitId 提交Id
+
 #### GitStore.saveFile(args)
 保存文件, 不存在创建, 存在覆盖.
 
@@ -54,7 +83,7 @@ const commits = await GitStore.history({path: "test/file"});
 - args.repopath 仓库路径
 - args.filepath 文件路径
 - args.content 文件内容
-- args.encoding 文件内容编码方式 默认 base64
+- args.encoding 文件内容编码方式
 - args.message 提交备注
 - args.ref 提交分支 默认为路径path对应的分支
 - args.committer.name 提交者用户名

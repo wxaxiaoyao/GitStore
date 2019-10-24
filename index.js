@@ -16,6 +16,18 @@ class GitStoreInterface {
 		return this[STORE].setOptions(args);
 	}
 
+	async openRepository(args) {
+		return this[STORE].openRepository(args);
+	}
+
+	async upload(args) {
+		return await this[STORE].upload(args);
+	}
+
+	async commit(args) {
+		return await this[STORE].commit(args);
+	}
+
 	async saveFile(args) {
 		return await this[STORE].saveFile(args);
 	}
@@ -50,6 +62,10 @@ class GitStoreInterface {
 
 	getRepoFullPath(args) {
 		return this[STORE].getRepoFullPath(args);
+	}
+
+	formatRef(args) {
+		return this[STORE].formatRef(args);
 	}
 }
 
