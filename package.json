@@ -18,7 +18,7 @@
   "author": "wxaxiaoyao",
   "license": "ISC",
   "dependencies": {
-    "@wxaxiaoyao/async-queue": "^1.0.4",
+    "@wxaxiaoyao/async-queue": "^1.0.5",
     "js-base64": "^2.5.1",
     "lodash": "^4.17.15",
     "nodegit": "^0.26.2"
