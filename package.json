@@ -1,6 +1,6 @@
 {
   "name": "git-history-store",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "Git-based object storage service",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   "author": "wxaxiaoyao",
   "license": "ISC",
   "dependencies": {
-    "@wxaxiaoyao/async-queue": "^1.0.5",
+    "@wxaxiaoyao/async-queue": "^1.0.6",
     "js-base64": "^2.5.1",
     "lodash": "^4.17.15",
     "nodegit": "^0.26.2"
