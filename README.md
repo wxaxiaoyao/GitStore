@@ -169,6 +169,25 @@ const commits = await GitStore.history({path: "test/file"});
 - isTree 是否Tree
 - children 当为Tree时, 此字段返回Tree的条目  recursive = true 时生效
 
+#### GitStore.createArchive(args)
+创建仓库归档文件
+
+**参数**
+- args.repopath 仓库路径
+- args.ref 分支
+
+**返回**
+- filename string 归档文件路径
+
+#### GitStore.rename(args)
+仓库改名
+
+**参数**
+- args.oldRepoPath 旧仓库名
+- args.newRepoPath 新仓库名
+
+**返回**
+- undefined
 
 
 

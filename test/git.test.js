@@ -13,7 +13,7 @@ const ref = "master";
 describe("git", async () => {
 
 	it ("001 tree", async () => {
-		util.rmdir("data");
+		util.rmdir("data/git");
 
 		let id = await git.saveFile({
 			repopath,
@@ -73,7 +73,7 @@ describe("git", async () => {
 			filepath: "file1",
 			content: "file1 content",
 		});
-		console.log(id);
+		//console.log(id);
 		assert(id);
 
 		id = await git.saveFile({
@@ -81,7 +81,7 @@ describe("git", async () => {
 			filepath: "file2",
 			content: "repo1 file2 content",
 		});
-		console.log(id);
+		//console.log(id);
 		assert(id);
 		
 		id = await git.saveFile({
@@ -89,21 +89,35 @@ describe("git", async () => {
 			filepath: "file2",
 			content: "file2 content",
 		});
-		console.log(id);
+		//console.log(id);
 		assert(id);
 	});
 
 	it("003 upload", async () => {
-		util.rmdir("data");
+		util.rmdir("data/git");
 		let id = await git.upload({
 			repopath,
 			filepath: "file1",
 			content: "file1 content",
 			base64: null,
 		});
-		console.log(id);
+		//console.log(id);
 
 		id = await git.commit({files:[{action:"upsert", filename:"file1", id}], repopath});
-		console.log(id);
+        assert(id);
+		//console.log(id);
 	});
+
+    it("004 rename", async () => {
+		util.rmdir("data/git");
+
+		await git.saveFile({
+			repopath: "repo1",
+			filepath: "file2",
+			content: "file2 content",
+		});
+        
+        git.rename({oldRepoPath:"repo1", newRepoPath: "repo2"}); 
+    });
+
 });

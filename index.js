@@ -67,6 +67,10 @@ class GitStoreInterface {
 	formatRef(args) {
 		return this[STORE].formatRef(args);
 	}
+
+    rename(args) {
+        return this[STORE].rename(args);
+    }
 }
 
 module.exports = new GitStoreInterface();
