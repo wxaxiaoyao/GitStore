@@ -1,4 +1,5 @@
 
+const nodegit = require("nodegit");
 const Store = require("./lib/store.js");
 
 const STORE = Symbol("STORE");
@@ -7,6 +8,10 @@ class GitStoreInterface {
 	constructor(opts) {
 		this[STORE] = new Store(opts);
 	}
+
+    get nodegit() {
+        return nodegit;
+    }
 
 	create(opt) {
 		return new GitStoreInterface(opt);

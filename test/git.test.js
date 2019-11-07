@@ -72,6 +72,10 @@ describe("git", async () => {
 			repopath:"repo1",
 			filepath: "file1",
 			content: "file1 content",
+            committer: {
+                name:"test",
+                email:"test@qq.com"
+            }
 		});
 		//console.log(id);
 		assert(id);
