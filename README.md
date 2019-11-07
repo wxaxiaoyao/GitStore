@@ -34,7 +34,7 @@ const commits = await GitStore.history({path: "test/file"});
 ```
 
 ### 接口
-#### GitStore.create(opts)
+#### GitStore(opts)
 创建存储实例, GitStore 本身也是实例.
 
 - opt.storePath 存储路径

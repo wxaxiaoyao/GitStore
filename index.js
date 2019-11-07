@@ -13,10 +13,6 @@ class GitStoreInterface {
         return nodegit;
     }
 
-	create(opt) {
-		return new GitStoreInterface(opt);
-	}
-
 	setOptions(args) {
 		return this[STORE].setOptions(args);
 	}
@@ -78,4 +74,4 @@ class GitStoreInterface {
     }
 }
 
-module.exports = new GitStoreInterface();
+module.exports = GitStoreInterface;

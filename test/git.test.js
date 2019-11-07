@@ -5,7 +5,8 @@ const assert = require("assert");
 const base64 = require('js-base64').Base64;
 const util = require("./util.js");
 
-const git = require("../index.js");
+const Git = require("../index.js");
+const git = new Git();
 const repopath = "test";
 const ref = "master";
 
